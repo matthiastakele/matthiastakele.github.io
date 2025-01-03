@@ -80,6 +80,11 @@
       transition: transform 1s ease-in-out; // Smooth transition
       margin: 0;
       margin-right: 0.10em;
+
+      // Hide on mobile
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
 
     // Hover effect for sliding
