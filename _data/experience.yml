@@ -1,0 +1,20 @@
+- company: Datadog
+  url: https://www.datadoghq.com/
+  time: Aug 2023 - Present
+  position: Software Engineer I
+  description: |
+    Developed and tested backend pipelines for data ingestion, transforming large datasets from S3 into PostgreSQL. Implemented schema validation, data freshness, and historical data backfills. Created cron jobs for automation, improved operational efficiency, and maintained data integrity with monitoring dashboards.
+
+- company: Datadog
+  url: https://www.datadoghq.com/
+  time: Jun 2022 - Aug 2022
+  position: Software Engineering Intern
+  description: |
+    Built a dynamic migration change tracker for PostgreSQL and Docker environments. Improved frontend data retrieval times for usage and billing graphs. Developed and maintained secure and scalable billing and usage APIs.
+
+- company: Microsoft
+  url: https://www.microsoft.com/
+  time: Jun 2020 - Aug 2020
+  position: New Technologists Program Intern
+  description: |
+    Developed a social media web app prototype using HTML, CSS, TypeScript, React, and Git. Conducted user research, created surveys, and presented the final product to Microsoft staff and executives.

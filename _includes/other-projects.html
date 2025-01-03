@@ -1,0 +1,68 @@
+<section class="section other-projects">
+  <div class="section__title">Projects</div>
+  <div class="section__content">
+    <div class="project">
+      <div class="project__name">
+        <a>Calial (Software Studio Final Project)</a>
+      </div>
+      <p>
+        Designed and developed a calendar-based social media app from concept to implementation. Created wireframes in Figma and designed the app logo in Adobe Illustrator. Built the frontend using HTML, CSS, and Vue, integrating third-party logins (Google and Facebook) with SDKs. Utilized MongoDB for seamless data storage and retrieval
+      </p>
+      <div class="project__used">
+        <span class="project__used__item">Vue</span>
+        <span class="project__used__item">MongoDB</span>
+        <span class="project__used__item">Figma</span>
+        <span class="project__used__item">Adobe Illustrator</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project__name">
+        <a>Star Battle (Elements of Software Construction Final Project)</a>
+      </div>
+      <p>
+        Created a star battle game using TypeScript, featuring a custom parser to decode puzzle data and a dynamic class for managing game state and interactions.
+      </p>
+      <div class="project__used">
+        <span class="project__used__item">TypeScript</span>
+        <span class="project__used__item">HTML</span>
+        <span class="project__used__item">CSS</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project__name">
+        <a>Maze Race (Embedded Systems Final Project)</a>
+      </div>
+      <p>
+        Developed a multiplayer maze racing game using the ESP32 Wi-Fi microcontroller, integrating hardware components (LCD, sensors) and a Python-based backend to handle server communications.
+      </p>
+      <div class="project__used">
+        <span class="project__used__item">ESP32</span>
+        <span class="project__used__item">Python</span>
+        <span class="project__used__item">MySQL</span>
+        <span class="project__used__item">C</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section other-projects">
+  <div class="section__title">Projects</div>
+  <div class="section__content">
+    {% for project in site.data.other-projects %}
+    <div class="project">
+      <div class="project__name">
+        <a>{{project.name}}</a>
+        <a href="{{project.url}}" target="_blank" class="arrow-link">{{project.name}}</a>
+      </div>
+      <p>{{project.description}}</p>
+      <div class="project__used">
+        {% for item in project.used %}
+        <span class="project__used__item">{{item.thing}}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section> -->

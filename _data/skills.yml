@@ -1,0 +1,27 @@
+languages:
+  - item: Python
+  - item: SQL
+  - item: Go
+  - item: TypeScript/React
+  - item: Swift
+  - item: Java
+  - item: C++
+  - item: HTML/CSS
+
+tools:
+  - item: Docker
+  - item: Kubernetes
+  - item: Terraform
+  - item: AWS
+  - item: Firebase
+  - item: Git & Github
+  - item: Jira
+  - item: Postman
+  - item: MongoDB
+  - item: CI/CD
+
+design:
+  - item: Figma
+  - item: Adobe Illustrator
+  - item: User Testing
+
