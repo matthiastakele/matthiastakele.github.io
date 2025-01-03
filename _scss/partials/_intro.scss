@@ -1,0 +1,151 @@
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem; // Space between text and image
+  padding: 3rem 3rem 0.5rem 3rem;
+
+  // Content Section (Text)
+  &__content {
+    flex: 3; // Proportionally allocate space for text
+  }
+
+  // Hello Section
+  &__hello {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center; // Vertically center the text and emoji
+
+    .emoji {
+      margin-left: 0.5rem;
+      display: inline-block;
+      cursor: pointer; // Makes it interactive
+      transition: transform 0.2s ease-in-out; // Smooth transition for hover effects
+      vertical-align: -3px;
+
+      &.wave-hand {
+        font-size: 1.25em; // Adjust the size of the emoji
+        animation: none; // Default: no animation
+
+        &:hover {
+          animation: wave 0.8s infinite; // Apply waving animation on hover
+          transform-origin: 70% 70%; // Pivot point for the wave
+        }
+      }
+    }
+  }
+
+  // Tagline Section
+  &__tagline {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+
+    .name {
+      font-weight: bold;
+      color: #007bff; // Customize the color for your name
+    }
+
+    .emoji {
+      margin-left: 0.5rem;
+    }
+  }
+
+  // Contact Section
+  &__contact {
+    font-size: 1.2rem;
+    display: flex;  // Use flexbox for alignment
+    align-items: center; // Vertically align items
+    gap: 0.5rem; // Add space between items
+  
+    .highlight-link {
+      color: #007bff;
+      text-decoration: underline;
+  
+      &:hover {
+        color: #0056b3;
+      }
+    }
+  
+    .emoji {
+      margin-left: 0.5rem;
+      display: inline-block;
+      vertical-align: middle; // Vertically align the emoji with the text
+    }
+  
+    .pointer {
+      font-size: 1.5em; // Optional: Adjust pointer size for better visibility
+      cursor: pointer; // Make it interactive
+      transition: transform 1s ease-in-out; // Smooth transition
+      margin: 0;
+      margin-right: 0.10em
+    }
+  
+    // Hover effect for sliding
+    &:hover .pointer {
+      animation: slide 1.1s infinite; // Trigger sliding on hover
+    }
+
+    .linkedin-logo {
+      width: 25px;  // Adjust logo size
+      height: auto;
+      vertical-align: middle;
+      margin-left: 5px;
+      margin-bottom: 1px
+    }
+  }
+
+  // Image Section
+  &__image {
+    flex: 2; // Proportionally allocate space for the image
+    img {
+      width: 50%;
+      height: auto;
+      border-radius: 50%; // Makes the image circular
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional: Adds a shadow
+      margin-top: 15%; // Adds extra space above the image
+      margin-bottom: 10px; // Optional: Adds space below the image
+      margin-left: 20%; // Centers the image horizontally
+      margin-right: auto; // Centers the image horizontally
+    }
+  }
+
+  // Animations
+
+  // Waving animation
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  // Sliding animation
+  @keyframes slide {
+    0% { transform: translateX(0); }       // Start at original position
+    25% { transform: translateX(10px); }    // Move 10px to the right
+    50% { transform: translateX(0); }       // Return to original position
+    75% { transform: translateX(10px); }    // Move 10px to the left
+    100% { transform: translateX(0); }      // Return to original position
+  }
+
+  // Responsive design for smaller screens
+  @media (max-width: 768px) {
+    flex-direction: column; // Stacks the content vertically
+    align-items: center;
+    text-align: center;
+
+    &__content,
+    &__image {
+      flex: none; // Reset flex properties for stacking
+      max-width: 100%; // Allow full width
+    }
+
+    &__image {
+      margin-top: 1.5rem;
+      max-width: 150px; // Maintain a smaller size for the image
+    }
+  }
+}
