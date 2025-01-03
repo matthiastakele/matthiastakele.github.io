@@ -8,7 +8,7 @@
 - company: Datadog
   url: https://www.datadoghq.com/
   time: Jun 2022 - Aug 2022
-  position: Software Engineering Intern
+  position: Software Engineer Intern
   description: |
     Built a dynamic migration change tracker for PostgreSQL and Docker environments. Improved frontend data retrieval times for usage and billing graphs. Developed and maintained secure and scalable billing and usage APIs.
 

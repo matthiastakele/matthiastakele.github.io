@@ -79,7 +79,7 @@
       cursor: pointer; // Make it interactive
       transition: transform 1s ease-in-out; // Smooth transition
       margin: 0;
-      margin-right: 0.10em
+      margin-right: 0.10em;
     }
   
     // Hover effect for sliding
@@ -92,7 +92,7 @@
       height: auto;
       vertical-align: middle;
       margin-left: 5px;
-      margin-bottom: 1px
+      margin-bottom: 1px;
     }
   }
 
@@ -136,6 +136,7 @@
     flex-direction: column; // Stacks the content vertically
     align-items: center;
     text-align: center;
+    padding: 2rem 1rem; // Adjust padding for mobile
 
     &__content,
     &__image {
@@ -146,6 +147,27 @@
     &__image {
       margin-top: 1.5rem;
       max-width: 150px; // Maintain a smaller size for the image
+      margin-left: 0; // Remove unnecessary horizontal centering
+      margin-right: 0; // Remove unnecessary horizontal centering
+    }
+
+    &__hello {
+      font-size: 2rem; // Reduce font size for mobile
+    }
+
+    &__tagline {
+      font-size: 1.3rem; // Reduce font size for mobile
+    }
+
+    &__contact {
+      font-size: 1rem; // Adjust font size for mobile
+      flex-direction: column; // Stack contact items vertically
+      align-items: center; // Center-align contact items
+      gap: 1rem; // Add more space between contact items
+    }
+
+    .pointer {
+      font-size: 1.2em; // Smaller pointer for mobile
     }
   }
 }
