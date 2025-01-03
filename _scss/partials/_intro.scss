@@ -55,25 +55,25 @@
   // Contact Section
   &__contact {
     font-size: 1.2rem;
-    display: flex;  // Use flexbox for alignment
+    display: flex; // Use flexbox for alignment
     align-items: center; // Vertically align items
     gap: 0.5rem; // Add space between items
-  
+
     .highlight-link {
       color: #007bff;
       text-decoration: underline;
-  
+
       &:hover {
         color: #0056b3;
       }
     }
-  
+
     .emoji {
       margin-left: 0.5rem;
       display: inline-block;
       vertical-align: middle; // Vertically align the emoji with the text
     }
-  
+
     .pointer {
       font-size: 1.5em; // Optional: Adjust pointer size for better visibility
       cursor: pointer; // Make it interactive
@@ -81,14 +81,14 @@
       margin: 0;
       margin-right: 0.10em;
     }
-  
+
     // Hover effect for sliding
     &:hover .pointer {
       animation: slide 1.1s infinite; // Trigger sliding on hover
     }
 
     .linkedin-logo {
-      width: 25px;  // Adjust logo size
+      width: 25px; // Adjust logo size
       height: auto;
       vertical-align: middle;
       margin-left: 5px;
@@ -115,20 +115,40 @@
 
   // Waving animation
   @keyframes wave {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(15deg); }
-    50% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
-    100% { transform: rotate(0deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(15deg);
+    }
+    50% {
+      transform: rotate(-10deg);
+    }
+    75% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
 
   // Sliding animation
   @keyframes slide {
-    0% { transform: translateX(0); }       // Start at original position
-    25% { transform: translateX(10px); }    // Move 10px to the right
-    50% { transform: translateX(0); }       // Return to original position
-    75% { transform: translateX(10px); }    // Move 10px to the left
-    100% { transform: translateX(0); }      // Return to original position
+    0% {
+      transform: translateX(0);
+    } // Start at original position
+    25% {
+      transform: translateX(10px);
+    } // Move 10px to the right
+    50% {
+      transform: translateX(0);
+    } // Return to original position
+    75% {
+      transform: translateX(10px);
+    } // Move 10px to the left
+    100% {
+      transform: translateX(0);
+    } // Return to original position
   }
 
   // Responsive design for smaller screens
@@ -138,22 +158,18 @@
     text-align: center;
     padding: 2rem 1rem; // Adjust padding for mobile
 
-    &__content,
-    &__image {
+    &__content {
       flex: none; // Reset flex properties for stacking
       max-width: 100%; // Allow full width
-      img {
-        width: 150px; /* Increase the size of the image on mobile */
-        height: 150px; /* Ensure the image remains square */
-        margin: 0; /* Remove unnecessary margins */
-      }
     }
 
     &__image {
       margin-top: 1.5rem;
-      max-width: 150px; // Maintain a smaller size for the image
-      margin-left: 0; // Remove unnecessary horizontal centering
-      margin-right: 0; // Remove unnecessary horizontal centering
+      img {
+        width: 200px; /* Increase the size of the image on mobile */
+        height: 200px; /* Ensure the image remains circular */
+        margin: 0 auto; /* Center-align the image horizontally */
+      }
     }
 
     &__hello {
