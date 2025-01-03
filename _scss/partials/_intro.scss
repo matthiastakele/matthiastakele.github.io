@@ -142,6 +142,11 @@
     &__image {
       flex: none; // Reset flex properties for stacking
       max-width: 100%; // Allow full width
+      img {
+        width: 150px; /* Increase the size of the image on mobile */
+        height: 150px; /* Ensure the image remains square */
+        margin: 0; /* Remove unnecessary margins */
+      }
     }
 
     &__image {
