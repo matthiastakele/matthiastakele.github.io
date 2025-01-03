@@ -1,0 +1,41 @@
+# Site settings
+name: Matthias Takele
+title: Matthias Takele | Software Engineer
+description: Software engineer creating impactful, design-centered applications and scalable infrastructure
+url: https://matthiastakele.github.io/
+baseurl: ''
+email: matthiastakele@gmail.com
+cover: https://bchiang7.github.io/img/og.png
+logo: https://bchiang7.github.io/img/emojis/technologist.png
+resume: https://matthiastakele.github.io/resume.pdf
+social:
+  - title: email
+    url: mailto:matthiastakele@gmail.com
+  - title: instagram
+    url: https://instagram.com/matthiastakele
+  - title: github
+    url: https://github.com/bchiang7
+  - title: linkedin
+    url: https://www.linkedin.com/in/bchiang7
+
+# Build settings
+markdown: kramdown
+
+exclude:
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - '*.gemspec'
+  - 'README.md'
+  - 'node_modules'
+  - 'build'
+  - 'gulpfile.js'
+  - 'package.json'
+
+keep_files:
+  - 'CNAME'
+  - '.git'
+  - '.gitignore'
+
+plugins_dir:
+  - jekyll-minifier
+  - jekyll-sitemap
