@@ -5,8 +5,8 @@ description: Software engineer creating impactful, design-centered applications 
 url: https://matthiastakele.github.io/
 baseurl: ''
 email: matthiastakele@gmail.com
-cover: https://bchiang7.github.io/img/og.png
-logo: https://bchiang7.github.io/img/emojis/technologist.png
+# cover: https://bchiang7.github.io/img/og.png
+# logo: https://bchiang7.github.io/img/emojis/technologist.png
 resume: https://matthiastakele.github.io/resume.pdf
 social:
   - title: email
@@ -14,9 +14,9 @@ social:
   - title: instagram
     url: https://instagram.com/matthiastakele
   - title: github
-    url: https://github.com/bchiang7
+    url: https://github.com/matthiastakele
   - title: linkedin
-    url: https://www.linkedin.com/in/bchiang7
+    url: https://www.linkedin.com/in/matthiastakele
 
 # Build settings
 markdown: kramdown

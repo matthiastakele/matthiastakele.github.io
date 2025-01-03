@@ -2,25 +2,23 @@
 name: Matthias Takele
 title: Matthias Takele | Front End Software Engineer
 description: Design-minded front-end software engineer focused on building beautiful interfaces and experiences
-url: https://bchiang7.github.io/
+url: https://matthiastakele.github.io/
 baseurl: ''
 email: matthiastakele@gmail.com
-cover: https://bchiang7.github.io/img/og.png
-logo: https://bchiang7.github.io/img/emojis/technologist.png
-resume: https://bchiang7.github.io/resume.pdf
+#cover: https://bchiang7.github.io/img/og.png
+#logo: https://bchiang7.github.io/img/emojis/technologist.png
+resume: https://matthiastakele.github.io/resume.pdf
 social:
   - title: email
     url: mailto:matthiastakele@gmail.com
-  - title: twitter
-    url: https://twitter.com/bchiang7
   - title: instagram
-    url: https://instagram.com/bchiang7
+    url: https://instagram.com/matthiastakele
   - title: codepen
     url: http://codepen.io/bchiang7
   - title: github
-    url: https://github.com/bchiang7
+    url: https://github.com/matthiastakele
   - title: linkedin
-    url: https://www.linkedin.com/in/bchiang7
+    url: https://www.linkedin.com/in/matthiastakele
 
 # Build settings
 markdown: kramdown
