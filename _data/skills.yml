@@ -1,27 +1,34 @@
 languages:
   - item: Python
-  - item: SQL
+  - item: TypeScript
   - item: Go
-  - item: TypeScript/React
+  - item: Ruby
+  - item: SQL
   - item: Swift
-  - item: Java
-  - item: C++
   - item: HTML/CSS
 
+frameworks:
+  - item: React
+  - item: React Native/Expo
+  - item: Rails
+  - item: Node.js
+  - item: Express
+  - item: FastAPI
+  - item: GraphQL
+
 tools:
+  - item: PostgreSQL
+  - item: Redis
+  - item: Snowflake
+  - item: DynamoDB
+  - item: AWS
   - item: Docker
   - item: Kubernetes
   - item: Terraform
-  - item: AWS
-  - item: Firebase
   - item: Git & Github
-  - item: Jira
-  - item: Postman
-  - item: MongoDB
   - item: CI/CD
 
 design:
   - item: Figma
   - item: Adobe Illustrator
   - item: User Testing
-

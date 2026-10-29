@@ -1,20 +1,20 @@
+- company: Guild
+  url: https://www.guild.com/
+  time: May 2025 - Present
+  position: Software Engineer II
+  description: |
+    Launched a pharmacy education benefit serving 1,000+ learners, building conditional React/TypeScript enrollment forms and Rails integrations supporting nearly $18M in approved benefits. Fixed duplicate-funding race conditions in Rails/PostgreSQL with idempotency safeguards and recovery from audit history, covering 80K+ approvals totaling $160M+. Built a resumable Node.js migration pipeline to move legacy reimbursement data into new payments services, integrating PostgreSQL, DynamoDB, Snowflake, and GraphQL. Added configurable payouts for books, materials, and fees to a separate education benefits platform, extending Python/FastAPI calculations and React/TypeScript policy controls.
+
 - company: Datadog
   url: https://www.datadoghq.com/
-  time: Aug 2023 - Present
+  time: Aug 2023 - May 2025
   position: Software Engineer I
   description: |
-    Developed and tested backend pipelines for data ingestion, transforming large datasets from S3 into PostgreSQL. Implemented schema validation, data freshness, and historical data backfills. Created cron jobs for automation, improved operational efficiency, and maintained data integrity with monitoring dashboards.
+    Built Python ETL pipelines from Amazon S3 to PostgreSQL, validating incoming data and reducing query latency by 20%. Developed a Go migration layer to move usage data onto a contract-aware schema while preserving existing customer-facing API behavior. Automated dataset deprecation and cleanup with scheduled jobs and monitoring, reducing stale data by 40% and decreasing manual maintenance.
 
 - company: Datadog
   url: https://www.datadoghq.com/
   time: Jun 2022 - Aug 2022
-  position: Software Engineer Intern
+  position: Software Engineering Intern
   description: |
-    Built a dynamic migration change tracker for PostgreSQL and Docker environments. Improved frontend data retrieval times for usage and billing graphs. Developed and maintained secure and scalable billing and usage APIs.
-
-- company: Microsoft
-  url: https://www.microsoft.com/
-  time: Jun 2020 - Aug 2020
-  position: New Technologists Program Intern
-  description: |
-    Developed a social media web app prototype using HTML, CSS, TypeScript, React, and Git. Conducted user research, created surveys, and presented the final product to Microsoft staff and executives.
+    Built a PostgreSQL migration tracker that caught schema discrepancies in containerized environments, reducing migration errors by 90%. Aggregated and validated approximately 200M historical records for usage and billing graphs, improving retrieval times by 30%.
