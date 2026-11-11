@@ -152,14 +152,14 @@ strong {
 .section {
   display: flex;
   justify-content: center;
-  padding: 110px 80px;
+  padding: 90px 80px;
   scroll-margin-top: $nav-height + 20px;
   counter-increment: section-counter;
   @include thirteen {
-    padding: 100px 60px;
+    padding: 85px 60px;
   }
   @include desktop {
-    padding: 85px 60px;
+    padding: 75px 60px;
   }
   @include tablet {
     display: block;

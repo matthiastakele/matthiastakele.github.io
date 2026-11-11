@@ -1,12 +1,12 @@
 # Site settings
 name: Matthias Takele
 title: Matthias Takele | Software Engineer
-description: Software engineer creating impactful, design-centered applications and scalable infrastructure
+description: Matthias Takele is a full stack software engineer at Guild working across TypeScript, React, Node.js, Ruby on Rails, and Python. Previously Datadog. Computer science at MIT.
 url: https://matthiastakele.github.io/
 baseurl: ''
 email: matthiastakele@gmail.com
-#cover: https://bchiang7.github.io/img/og.png
-#logo: https://bchiang7.github.io/img/emojis/technologist.png
+cover: https://matthiastakele.github.io/img/og.png
+logo: https://matthiastakele.github.io/img/favicon.png
 resume: https://matthiastakele.github.io/resume.pdf
 social:
   - title: email

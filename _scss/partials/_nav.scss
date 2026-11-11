@@ -39,23 +39,40 @@
     }
   }
 
-  &__logo {
-    font-family: 'Inconsolata', monospace;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: $blue !important;
-    border: 2px solid $blue;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: -1px;
+  // Hidden over the hero, where the headline already carries the name.
+  // Fades in once the nav sticks and that headline is gone.
+  &__wordmark {
+    font-family: $display;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    color: $black;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease, color 0.25s ease;
+    white-space: nowrap;
 
     body.night & {
-      color: $blue-night !important;
-      border-color: $blue-night;
+      color: $off-white;
+    }
+
+    @include mobile {
+      font-size: 0.9rem;
+    }
+
+    .site-nav.is-stuck & {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    &:hover {
+      color: $blue;
+
+      body.night & {
+        color: $blue-night;
+      }
     }
   }
 

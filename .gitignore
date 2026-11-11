@@ -1,0 +1,8 @@
+node_modules/
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+css/main.expanded.css
+css/main.expanded.css.map
+.DS_Store

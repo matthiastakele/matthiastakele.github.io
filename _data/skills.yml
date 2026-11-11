@@ -10,11 +10,17 @@ languages:
 frameworks:
   - item: React
   - item: React Native/Expo
-  - item: Rails
   - item: Node.js
+  - item: GraphQL/Apollo
+  - item: Rails
   - item: Express
   - item: FastAPI
-  - item: GraphQL
+
+testing:
+  - item: Jest
+  - item: Testing Library
+  - item: Cypress
+  - item: RSpec
 
 tools:
   - item: PostgreSQL

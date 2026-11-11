@@ -74,20 +74,43 @@
   &__status {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 7px 16px 7px 13px;
-    border: 1px solid rgba($blue, 0.3);
+    gap: 8px;
+    padding: 9px 20px 9px 16px;
+    border: 1px solid rgba($blue, 0.45);
     border-radius: 100px;
-    background: rgba($blue, 0.07);
+    background: rgba($blue, 0.1);
     font-family: $mono;
-    font-size: 0.8rem;
-    letter-spacing: 0.04em;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
     color: $blue;
 
+    @include mobile {
+      font-size: 0.8rem;
+      padding: 8px 16px 8px 13px;
+    }
+
     body.night & {
-      border-color: rgba($blue-night, 0.3);
-      background: rgba($blue-night, 0.08);
+      border-color: rgba($blue-night, 0.4);
+      background: rgba($blue-night, 0.12);
       color: $blue-night;
+    }
+
+    // Hierarchy inside the pill: role reads first, company carries the accent.
+    &__role {
+      font-weight: 700;
+      color: $black;
+
+      body.night & {
+        color: $off-white;
+      }
+    }
+
+    &__at {
+      opacity: 0.6;
+    }
+
+    &__company {
+      font-weight: 700;
     }
 
     &__dot {

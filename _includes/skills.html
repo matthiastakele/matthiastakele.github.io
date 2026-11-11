@@ -20,6 +20,14 @@
         </ul>
       </div>
       <div class="skillz__category">
+        <div class="skillz__category__label">Testing</div>
+        <ul>
+          {% for item in site.data.skills.testing %}
+          <li class="skillz__category__item">{{item.item}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="skillz__category">
         <div class="skillz__category__label">Data &amp; Infrastructure</div>
         <ul>
           {% for tool in site.data.skills.tools %}
