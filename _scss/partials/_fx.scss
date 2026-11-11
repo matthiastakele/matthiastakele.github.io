@@ -11,6 +11,12 @@
   body.night & {
     opacity: 0.05;
   }
+
+  // A constantly animating full-screen layer isn't worth the battery on phones.
+  @include little-desktop {
+    animation: none;
+    inset: 0;
+  }
 }
 
 @keyframes grain-shift {

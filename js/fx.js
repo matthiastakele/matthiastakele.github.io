@@ -34,9 +34,53 @@
     }
   }
 
+  /* ----------------------------------------------------------------
+   * Mobile drawer.
+   * ---------------------------------------------------------------- */
+  var burger = document.querySelector('.site-nav__burger');
+  var mobileMenu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    if (!document.body.classList.contains('menu-open')) return;
+    document.body.classList.remove('menu-open');
+    document.body.style.overflow = '';
+    if (burger) burger.setAttribute('aria-expanded', 'false');
+    if (mobileMenu) mobileMenu.setAttribute('aria-hidden', 'true');
+    if (lenis) lenis.start();
+  }
+
+  function openMenu() {
+    document.body.classList.add('menu-open');
+    document.body.style.overflow = 'hidden';
+    if (burger) burger.setAttribute('aria-expanded', 'true');
+    if (mobileMenu) mobileMenu.setAttribute('aria-hidden', 'false');
+    if (lenis) lenis.stop();
+  }
+
+  if (burger) {
+    burger.addEventListener('click', function () {
+      if (document.body.classList.contains('menu-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    // A drawer left open across the breakpoint would trap scrolling.
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 850) closeMenu();
+    });
+  }
+
   // Anchor links must route through Lenis, otherwise native smooth scroll fights it.
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (event) {
+      // Close first: scrolling is locked while the drawer is open.
+      closeMenu();
       var hash = link.getAttribute('href');
       if (!hash || hash === '#') {
         event.preventDefault();
@@ -68,6 +112,7 @@
     var dots = [];
     var spacing = 30;
     var influence = 170;
+    var ambientOn = !reduceMotion && finePointer;
     var pointer = { x: -9999, y: -9999 };
     var width = 0;
     var height = 0;
@@ -82,6 +127,8 @@
     function build() {
       var rect = canvas.getBoundingClientRect();
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // Fewer, wider-spaced dots on phones.
+      spacing = rect.width < 700 ? 44 : 30;
       width = rect.width;
       height = rect.height;
       canvas.width = Math.floor(width * dpr);
@@ -104,7 +151,7 @@
 
       for (var i = 0; i < dots.length; i++) {
         var dot = dots[i];
-        var ambient = reduceMotion ? 0 : Math.sin(time * 0.0012 + dot.phase) * 0.5 + 0.5;
+        var ambient = ambientOn ? Math.sin(time * 0.0012 + dot.phase) * 0.5 + 0.5 : 0;
         var radius = 1 + ambient * 0.35;
         var alpha = colors.baseAlpha + ambient * 0.1;
         var color = colors.base;
@@ -133,10 +180,27 @@
       requestAnimationFrame(frame);
     }
 
-    build();
-    requestAnimationFrame(frame);
+    function rebuild() {
+      build();
+      if (!ambientOn) draw(0);
+    }
 
-    window.addEventListener('resize', build);
+    build();
+
+    if (ambientOn) {
+      requestAnimationFrame(frame);
+    } else {
+      // Touch devices get a single static paint rather than a perpetual loop.
+      draw(0);
+      var themeInput = document.getElementById('switch');
+      if (themeInput) {
+        themeInput.addEventListener('change', function () {
+          draw(0);
+        });
+      }
+    }
+
+    window.addEventListener('resize', rebuild);
     window.addEventListener(
       'mousemove',
       function (event) {

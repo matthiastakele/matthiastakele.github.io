@@ -63,7 +63,7 @@
 
     @include little-desktop {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 24px;
     }
   }
 
@@ -180,8 +180,17 @@
   &__portrait {
     position: relative;
 
+    // Sits above the headline on small screens.
     @include little-desktop {
-      display: none;
+      order: -1;
+
+      &:before {
+        width: 240px;
+        height: 240px;
+        top: 0;
+        left: 0;
+        right: auto;
+      }
     }
 
     // Ambient halo: lights the portrait instead of outlining it.
@@ -217,6 +226,13 @@
         box-shadow: 0 40px 70px -30px rgba(#000, 0.6);
       }
 
+      @include little-desktop {
+        max-width: 150px;
+        margin-left: 0;
+        border-radius: 80px 80px 16px 16px;
+        box-shadow: none;
+      }
+
       &:before {
         content: '';
         position: absolute;
@@ -225,6 +241,14 @@
         background: linear-gradient(to top, rgba($white, 0.95), transparent 42%);
         body.night & {
           background: linear-gradient(to top, rgba($night, 0.95), transparent 42%);
+        }
+
+        // A 42% fade swallows too much of the smaller mobile portrait.
+        @include little-desktop {
+          background: linear-gradient(to top, rgba($white, 0.8), transparent 22%);
+          body.night & {
+            background: linear-gradient(to top, rgba($night, 0.85), transparent 22%);
+          }
         }
       }
 

@@ -79,6 +79,15 @@
       .arrow-link {
         white-space: normal;
       }
+
+      // Keep the trailing arrow on the title's last line.
+      @include mobile {
+        padding-right: 22px;
+        font-size: 0.95rem;
+        .arrow-link:after {
+          margin-left: 8px;
+        }
+      }
     }
     p,
     .project__bullets {

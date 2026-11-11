@@ -124,11 +124,150 @@
     align-items: center;
     gap: 20px;
 
+    @include little-desktop {
+      gap: 14px;
+    }
+
+    // The drawer carries the resume CTA on small screens.
     .btn-pill {
-      @include tiny-mobile {
+      @include little-desktop {
         display: none;
       }
     }
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline-offset: 4px;
+
+    @include little-desktop {
+      display: flex;
+    }
+
+    span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      border-radius: 2px;
+      background: $black;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.25s ease, background 0.25s ease;
+
+      body.night & {
+        background: $off-white;
+      }
+    }
+
+    body.menu-open & {
+      span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 34px;
+  padding: calc(#{$nav-height} + 30px) 28px 40px;
+  background: rgba($white, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s;
+
+  body.night & {
+    background: rgba($night, 0.97);
+  }
+
+  @include little-desktop {
+    display: flex;
+  }
+
+  body.menu-open & {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    a {
+      display: block;
+      padding: 12px 0;
+      font-family: $display;
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: $black;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.4s ease, transform 0.4s ease, color 0.25s ease;
+
+      body.night & {
+        color: $off-white;
+      }
+
+      .num {
+        font-family: $mono;
+        font-size: 0.85rem;
+        font-weight: 400;
+        margin-right: 10px;
+        color: $blue;
+
+        body.night & {
+          color: $blue-night;
+        }
+      }
+
+      &:active {
+        color: $blue;
+      }
+    }
+
+    // Stagger the links in once the drawer is open.
+    @for $i from 1 through 4 {
+      li:nth-child(#{$i}) a {
+        transition-delay: #{0.04 * $i + 0.05}s;
+      }
+    }
+
+    body.menu-open & a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__resume {
+    align-self: flex-start;
+  }
+
+  &__social {
+    display: flex;
+    gap: 14px;
   }
 }
 
