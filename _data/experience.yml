@@ -2,19 +2,25 @@
   url: https://www.guild.com/
   time: May 2025 - Present
   position: Software Engineer II
-  description: |
-    Launched a pharmacy education benefit serving 1,000+ learners, building conditional React/TypeScript enrollment forms and Rails integrations supporting nearly $18M in approved benefits. Fixed duplicate-funding race conditions in Rails/PostgreSQL with idempotency safeguards and recovery from audit history, covering 80K+ approvals totaling $160M+. Built a resumable Node.js migration pipeline to move legacy reimbursement data into new payments services, integrating PostgreSQL, DynamoDB, Snowflake, and GraphQL. Added configurable payouts for books, materials, and fees to a separate education benefits platform, extending Python/FastAPI calculations and React/TypeScript policy controls.
+  bullets:
+    - Launched a pharmacy education benefit serving 1,000+ learners, building conditional React/TypeScript enrollment forms and Rails integrations supporting nearly $18M in approved benefits.
+    - Fixed duplicate-funding race conditions in Rails/PostgreSQL with idempotency safeguards and recovery from audit history, covering 80K+ approvals totaling $160M+.
+    - Built a resumable Node.js migration pipeline to move legacy reimbursement data into new payments services, integrating PostgreSQL, DynamoDB, Snowflake, and GraphQL.
+    - Added configurable payouts for books, materials, and fees to a separate education benefits platform, extending Python/FastAPI calculations and React/TypeScript policy controls.
 
 - company: Datadog
   url: https://www.datadoghq.com/
   time: Aug 2023 - May 2025
   position: Software Engineer I
-  description: |
-    Built Python ETL pipelines from Amazon S3 to PostgreSQL, validating incoming data and reducing query latency by 20%. Developed a Go migration layer to move usage data onto a contract-aware schema while preserving existing customer-facing API behavior. Automated dataset deprecation and cleanup with scheduled jobs and monitoring, reducing stale data by 40% and decreasing manual maintenance.
+  bullets:
+    - Built Python ETL pipelines from Amazon S3 to PostgreSQL, validating incoming data and reducing query latency by 20%.
+    - Developed a Go migration layer to move usage data onto a contract-aware schema while preserving existing customer-facing API behavior.
+    - Automated dataset deprecation and cleanup with scheduled jobs and monitoring, reducing stale data by 40% and decreasing manual maintenance.
 
 - company: Datadog
   url: https://www.datadoghq.com/
   time: Jun 2022 - Aug 2022
   position: Software Engineering Intern
-  description: |
-    Built a PostgreSQL migration tracker that caught schema discrepancies in containerized environments, reducing migration errors by 90%. Aggregated and validated approximately 200M historical records for usage and billing graphs, improving retrieval times by 30%.
+  bullets:
+    - Built a PostgreSQL migration tracker that caught schema discrepancies in containerized environments, reducing migration errors by 90%.
+    - Aggregated and validated approximately 200M historical records for usage and billing graphs, improving retrieval times by 30%.

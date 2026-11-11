@@ -1,0 +1,105 @@
+/* Film grain — gives the flat dark surface some material quality. */
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 8s steps(10) infinite;
+
+  body.night & {
+    opacity: 0.05;
+  }
+}
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-3%, -5%); }
+  20% { transform: translate(-8%, 3%); }
+  30% { transform: translate(5%, -8%); }
+  40% { transform: translate(-3%, 10%); }
+  50% { transform: translate(-8%, 5%); }
+  60% { transform: translate(8%, 0); }
+  70% { transform: translate(0, 8%); }
+  80% { transform: translate(3%, 28%); }
+  90% { transform: translate(-8%, 8%); }
+}
+
+/* Custom cursor */
+body.has-custom-cursor,
+body.has-custom-cursor a,
+body.has-custom-cursor button,
+body.has-custom-cursor label {
+  cursor: none;
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 50%;
+  margin-left: -4px;
+  margin-top: -4px;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: $blue;
+
+  body.night & {
+    background: $blue-night;
+  }
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border: 1px solid rgba($blue, 0.5);
+  transition: width 0.25s ease, height 0.25s ease, margin 0.25s ease,
+    background 0.25s ease, border-color 0.25s ease;
+
+  body.night & {
+    border-color: rgba($blue-night, 0.5);
+  }
+
+  &.is-active {
+    width: 58px;
+    height: 58px;
+    margin-left: -29px;
+    margin-top: -29px;
+    background: rgba($blue, 0.08);
+    border-color: rgba($blue, 0.8);
+
+    body.night & {
+      background: rgba($blue-night, 0.1);
+      border-color: rgba($blue-night, 0.8);
+    }
+  }
+}
+
+/* Elements animated in by GSAP stay visible if the CDN never arrives. */
+.reveal {
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .grain {
+    animation: none;
+  }
+}

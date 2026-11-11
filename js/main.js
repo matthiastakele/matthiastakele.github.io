@@ -1,77 +1,60 @@
-$(function() {
-  const d = new Date();
-  const hours = d.getHours();
-  const night = hours >= 19 || hours <= 7; // between 7pm and 7am
-  const body = document.querySelector('body');
-  const toggle = document.getElementById('toggle');
-  const input = document.getElementById('switch');
+(function () {
+  var body = document.body;
+  var input = document.getElementById('switch');
+  var STORAGE_KEY = 'mt-theme';
 
-  if (night) {
-    input.checked = true;
-    body.classList.add('night');
-  }
-
-  toggle.addEventListener('click', function() {
-    const isChecked = input.checked;
-    if (isChecked) {
-      body.classList.remove('night');
-    } else {
-      body.classList.add('night');
+  function readStoredTheme() {
+    try {
+      return window.localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      return null;
     }
-  });
-
-  const introHeight = document.querySelector('.intro').offsetHeight;
-  const topButton = document.getElementById('top-button');
-  const $topButton = $('#top-button');
-
-  window.addEventListener(
-    'scroll',
-    function() {
-      if (window.scrollY > introHeight) {
-        $topButton.fadeIn();
-      } else {
-        $topButton.fadeOut();
-      }
-    },
-    false
-  );
-
-  topButton.addEventListener('click', function() {
-    $('html, body').animate({ scrollTop: 0 }, 500);
-  });
-
-  const hand = document.querySelector('.emoji.wave-hand');
-
-  function waveOnLoad() {
-    hand.classList.add('wave');
-    setTimeout(function() {
-      hand.classList.remove('wave');
-    }, 2000);
   }
 
-  setTimeout(function() {
-    waveOnLoad();
-  }, 1000);
+  function storeTheme(theme) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, theme);
+    } catch (e) {
+      /* private mode — fall back to session-only behavior */
+    }
+  }
 
-  hand.addEventListener('mouseover', function() {
-    hand.classList.add('wave');
-  });
+  function applyTheme(isNight) {
+    body.classList.toggle('night', isNight);
+    if (input) input.checked = isNight;
+  }
 
-  hand.addEventListener('mouseout', function() {
-    hand.classList.remove('wave');
-  });
+  // Dark is the designed default; an explicit choice always wins.
+  var stored = readStoredTheme();
+  applyTheme(stored ? stored === 'night' : true);
 
-  window.sr = ScrollReveal({
-    reset: false,
-    duration: 600,
-    easing: 'cubic-bezier(.694,0,.335,1)',
-    scale: 1,
-    viewFactor: 0.3,
-  });
+  // Listen on the input, not the label: the label's native activation runs
+  // after click handlers and would flip the checkbox back out of sync.
+  if (input) {
+    input.addEventListener('change', function () {
+      applyTheme(input.checked);
+      storeTheme(input.checked ? 'night' : 'day');
+    });
+  }
 
-  sr.reveal('.background');
-  sr.reveal('.skills');
-  sr.reveal('.experience', { viewFactor: 0.2 });
-  sr.reveal('.featured-projects', { viewFactor: 0.1 });
-  sr.reveal('.other-projects', { viewFactor: 0.05 });
-});
+  var topButton = document.getElementById('top-button');
+  if (topButton) {
+    var hero = document.querySelector('.hero');
+    var threshold = hero ? hero.offsetHeight : window.innerHeight;
+
+    function syncTopButton() {
+      topButton.classList.toggle('is-visible', window.scrollY > threshold);
+    }
+
+    syncTopButton();
+    window.addEventListener('scroll', syncTopButton, { passive: true });
+
+    topButton.addEventListener('click', function () {
+      if (window.__lenis) {
+        window.__lenis.scrollTo(0);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
+})();

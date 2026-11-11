@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -9,7 +10,24 @@ html {
 }
 
 ::selection {
-  background: $yellow;
+  background: $blue;
+  color: $white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba($blue, 0.4);
+  border-radius: 10px;
+  &:hover {
+    background: rgba($blue, 0.7);
+  }
 }
 
 html,
@@ -26,10 +44,16 @@ body {
 
   &.night {
     background-color: $night;
+    background-image: radial-gradient(
+      ellipse 1200px 600px at 50% -10%,
+      rgba($blue-night, 0.08),
+      transparent 60%
+    );
+    background-repeat: no-repeat;
     color: $slate;
     ::selection {
-      color: $black;
-      background: $yellow;
+      color: $night;
+      background: $blue-night;
     }
     .switch-wrapper {
       .sun {
@@ -43,7 +67,6 @@ body {
     }
     a,
     strong,
-    .intro,
     .skills .skillz__category__label,
     .experience .job__time,
     .footer__copyright,
@@ -53,6 +76,27 @@ body {
     .section__content .underline-link:after {
       background: $off-white;
     }
+    .section__title,
+    .job__bullets li:before,
+    .project__bullets li:before,
+    .other-projects .project__used__item,
+    .footer__links a {
+      color: $blue-night;
+    }
+    .other-projects .project__used__item {
+      border-color: rgba($blue-night, 0.4);
+      background: rgba($blue-night, 0.08);
+    }
+    .footer__links a:after {
+      background: $blue-night;
+    }
+    .other-projects .project {
+      border-color: rgba($blue-night, 0.15);
+      background: $night-raised;
+      &:hover {
+        border-color: $blue-night;
+      }
+    }
   }
 }
 
@@ -61,6 +105,14 @@ a {
   text-decoration: none;
   font-weight: 700;
   color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $display;
+  letter-spacing: -0.02em;
 }
 
 ul {
@@ -93,58 +145,106 @@ strong {
   background-position: center;
 }
 
+#site {
+  counter-reset: section-counter;
+}
+
 .section {
   display: flex;
   justify-content: center;
-  padding: 50px 100px; // Reduced padding for smaller space between sections
+  padding: 110px 80px;
+  scroll-margin-top: $nav-height + 20px;
+  counter-increment: section-counter;
   @include thirteen {
-    padding: 50px;
+    padding: 100px 60px;
   }
   @include desktop {
-    padding: 30px 60px;
+    padding: 85px 60px;
   }
   @include tablet {
     display: block;
-    padding: 30px 35px; // Even smaller padding for tablet
+    padding: 70px 35px;
   }
   @include mobile {
-    padding: 30px 20px; // Minimal padding for mobile
+    padding: 60px 22px;
   }
   &__title {
     flex-shrink: 0;
-    width: 200px;
-    margin-right: 70px;
+    width: 220px;
+    margin-right: 80px;
     color: $blue;
     text-transform: uppercase;
     text-align: right;
+    font-family: $mono;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 0.22em;
+    position: sticky;
+    top: calc(#{$nav-height} + 40px);
+    align-self: flex-start;
+    &:before {
+      content: counter(section-counter, decimal-leading-zero);
+      display: block;
+      font-size: 2.4rem;
+      font-family: $display;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 10px;
+      opacity: 0.25;
+    }
     @include desktop {
-      margin-right: 50px;
+      margin-right: 55px;
     }
     @include little-desktop {
-      width: 150px;
+      width: 160px;
     }
     @include tablet {
+      position: static;
       text-align: left;
       width: auto;
+      margin-bottom: 8px;
+      &:before {
+        display: inline-block;
+        font-size: 1rem;
+        margin-right: 10px;
+        margin-bottom: 0;
+      }
     }
   }
   &__content {
     font-weight: 300;
     font-size: 1rem;
     width: 100%;
-    max-width: 650px;
+    max-width: 680px;
     @include tablet {
-      padding-top: 30px;
-      padding-left: 50px;
-    }
-    @include mobile {
-      padding-left: 30px;
+      padding-top: 22px;
+      padding-left: 0;
     }
     p {
       margin-top: 0;
       margin-bottom: 25px;
+    }
+    .job__bullets,
+    .project__bullets {
+      margin: 10px 0 20px;
+      padding: 0;
+      list-style: none;
+      li {
+        position: relative;
+        padding-left: 18px;
+        margin-bottom: 10px;
+        line-height: 1.5;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &:before {
+          content: '▹';
+          position: absolute;
+          left: 0;
+          color: $blue;
+        }
+      }
     }
     .underline-link {
       position: relative;
@@ -180,21 +280,38 @@ strong {
   display: inline-block;
   background-color: transparent;
   white-space: nowrap;
+
   &:after {
     @include transition;
     position: relative;
-    bottom: 2px;
-    margin-left: 15px;
+    bottom: 1px;
+    margin-left: 12px;
     content: '';
-    background: url('../img/arrow.png') no-repeat center;
-    background-size: 100%;
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     display: inline-block;
     vertical-align: middle;
+    background-color: $blue;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      no-repeat center / contain;
+
+    body.night & {
+      background-color: $blue-night;
+    }
   }
-  &:hover:after {
-    transform: translateX(7px);
+
+  &:hover {
+    color: $blue;
+
+    body.night & {
+      color: $blue-night;
+    }
+
+    &:after {
+      transform: translateX(6px);
+    }
   }
 }
 
@@ -209,32 +326,61 @@ strong {
 }
 
 #top-button {
-  @include transition;
-  background: transparent;
-  border: none;
-  outline: none;
-  width: 40px;
   position: fixed;
-  bottom: 25px;
-  right: 10px;
+  bottom: 28px;
+  right: 28px;
+  z-index: 90;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba($blue, 0.35);
+  border-radius: 50%;
+  background: rgba($white, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: $blue;
   cursor: pointer;
-  display: none;
-  @include desktop {
-    bottom: 20px;
-    right: 7px;
-    width: 35px;
-  }
-  @include mobile {
-    bottom: 15px;
-    right: 3px;
+  outline: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s,
+    background 0.25s ease, color 0.25s ease;
+
+  body.night & {
+    border-color: rgba($blue-night, 0.35);
+    background: rgba($night-raised, 0.8);
+    color: $blue-night;
   }
 
-  &:hover,
-  &:focus {
-    transform: translateY(-10px);
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
-  img {
-    width: 100%;
+
+  &:hover {
+    background: $blue;
+    color: $white;
+
+    body.night & {
+      background: $blue-night;
+      color: $night;
+    }
+  }
+
+  svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  @include mobile {
+    bottom: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
   }
 }
 

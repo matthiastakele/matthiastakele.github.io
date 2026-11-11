@@ -1,24 +1,66 @@
 .skills {
   .skillz {
-    display: flex;
-    justify-content: space-between;
-    @include weird-medium {
-      flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 40px;
+
+    @include phablet {
+      grid-template-columns: 1fr;
+      gap: 28px;
     }
+
     &__category {
-      @include weird-medium {
-        width: 47%;
-        margin-right: 5px;
-        margin-bottom: 25px;
-      }
       &__label {
+        font-family: $mono;
+        font-size: 0.72rem;
         font-weight: 700;
-        color: $black;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
+        color: $grey;
+        margin-bottom: 14px;
+
+        body.night & {
+          color: $slate;
+        }
       }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
       &__item {
-        margin: 3px 0;
-        font-size: 0.9rem;
+        margin: 0;
+        padding: 5px 12px;
+        font-family: $mono;
+        font-size: 0.78rem;
+        line-height: 1.4;
+        border-radius: 8px;
+        border: 1px solid rgba($black, 0.1);
+        background: rgba($black, 0.02);
+        color: $dark-grey;
+        transition: border-color 0.25s ease, color 0.25s ease,
+          background 0.25s ease, transform 0.25s ease;
+
+        body.night & {
+          border-color: rgba($off-white, 0.1);
+          background: rgba($off-white, 0.03);
+          color: $slate;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          border-color: $blue;
+          color: $blue;
+          background: rgba($blue, 0.06);
+
+          body.night & {
+            border-color: $blue-night;
+            color: $blue-night;
+            background: rgba($blue-night, 0.08);
+          }
+        }
       }
     }
   }

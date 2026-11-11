@@ -1,26 +1,106 @@
 .other-projects {
+  .section__content {
+    max-width: 700px;
+    counter-reset: project-counter;
+  }
   .project {
-    max-width: 600px;
-    margin-bottom: 50px;
+    --mx: 50%;
+    --my: 50%;
+    --rx: 0deg;
+    --ry: 0deg;
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 22px;
+    padding: 32px 34px;
+    border: 1px solid rgba($black, 0.08);
+    border-radius: 16px;
+    background: $white;
+    counter-increment: project-counter;
+    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+    transform-style: preserve-3d;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease,
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+    // Cursor-tracked spotlight.
+    &:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      background: radial-gradient(
+        320px circle at var(--mx) var(--my),
+        rgba($blue, 0.1),
+        transparent 65%
+      );
+      body.night & {
+        background: radial-gradient(
+          320px circle at var(--mx) var(--my),
+          rgba($blue-night, 0.13),
+          transparent 65%
+        );
+      }
+    }
+
+    &:hover {
+      border-color: rgba($blue, 0.55);
+      box-shadow: 0 22px 50px -20px rgba($black, 0.25);
+
+      body.night & {
+        border-color: rgba($blue-night, 0.5);
+        box-shadow: 0 22px 50px -18px rgba(#000, 0.5);
+      }
+
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    &:before {
+      content: counter(project-counter, decimal-leading-zero);
+      position: absolute;
+      top: 22px;
+      right: 26px;
+      font-family: $mono;
+      font-size: 0.75rem;
+      color: $grey;
+      opacity: 0.55;
+    }
+
+    @include mobile {
+      padding: 22px 20px;
+    }
+
     &__name {
       margin-bottom: 10px;
+      padding-right: 30px;
+      .arrow-link {
+        white-space: normal;
+      }
+    }
+    p,
+    .project__bullets {
+      font-size: 0.9rem;
     }
     p {
-      font-size: 0.9rem;
       margin-bottom: 20px;
     }
     &__used {
+      margin-top: 16px;
       &__item {
         display: inline-block;
-        margin: 3px 3px 3px 0;
+        margin: 4px 6px 4px 0;
         font-family: 'Inconsolata', monospace;
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         font-weight: 700;
-        padding: 2px 7px;
-        border-radius: 3px;
+        padding: 3px 10px;
+        border-radius: 20px;
         color: $blue;
-        border: 1px solid $blue;
-        background: transparent;
+        border: 1px solid rgba($blue, 0.4);
+        background: rgba($blue, 0.06);
+        @include transition;
         &:first-of-type {
           margin-left: 0;
         }

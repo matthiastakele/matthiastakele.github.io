@@ -4,6 +4,23 @@
   }
   .job {
     margin-bottom: 25px;
+    padding-left: 16px;
+    border-left: 2px solid rgba($blue, 0.15);
+    @include transition;
+    transition-duration: 0.3s;
+
+    &:hover {
+      border-left-color: $blue;
+    }
+
+    body.night & {
+      border-left-color: rgba($blue-night, 0.2);
+    }
+
+    body.night &:hover {
+      border-left-color: $blue-night;
+    }
+
     .time-place {
       display: flex;
       justify-content: space-between;

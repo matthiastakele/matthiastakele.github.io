@@ -1,4 +1,4 @@
-<section class="section experience">
+<section class="section experience" id="experience">
   <div class="section__title">Experience</div>
   <div class="section__content">
     <div class="jobs">
@@ -11,8 +11,11 @@
           <div class="job__time">{{job.time}}</div>
         </div>
         <div class="job__position">{{job.position}}</div>
-        <br>
-        <div class="job__description">{{job.description}}</div>
+        <ul class="job__bullets">
+          {% for bullet in job.bullets %}
+          <li>{{bullet}}</li>
+          {% endfor %}
+        </ul>
       </div>
       {% endfor %}
     </div>

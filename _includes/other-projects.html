@@ -1,14 +1,16 @@
-<section class="section other-projects">
+<section class="section other-projects" id="projects">
   <div class="section__title">Projects</div>
   <div class="section__content">
 
     <div class="project">
       <div class="project__name">
-        <a href="https://albie-app.com" target="_blank">Albie (Personal Project)</a>
+        <a href="https://albie-app.com" target="_blank" class="arrow-link">Albie (Personal Project)</a>
       </div>
-      <p>
-        Designing, building, and shipping an iOS app for collaborative photo albums, journaling, and messaging — solo, end to end. Built the React Native/Expo client and a TypeScript/Node and PostgreSQL backend with Redis, Cloudflare R2, and Socket.IO for real-time collaboration. Implemented resumable media uploads and offline sync using durable queues, multipart transfers that survive app termination, and idempotent APIs. Added semantic photo search and Ask Albie, an on-device AI assistant built on image-text embeddings and local LLMs with structured outputs and response validation, written as custom Swift modules so no photo ever leaves the phone.
-      </p>
+      <ul class="project__bullets">
+        <li>Built and shipped an iOS app with 100+ beta users for collaborative photo albums, journaling, and messaging using React Native/Expo, TypeScript, and a Node.js/PostgreSQL backend.</li>
+        <li>Added semantic photo search and an on-device AI assistant using image-text embeddings, local LLMs, structured outputs, and response validation.</li>
+        <li>Implemented resumable media uploads and offline synchronization with durable queues and idempotent APIs, using Redis, Cloudflare R2, and Socket.IO for shared albums.</li>
+      </ul>
       <div class="project__used">
         <span class="project__used__item">React Native/Expo</span>
         <span class="project__used__item">TypeScript</span>
@@ -24,11 +26,11 @@
 
     <div class="project">
       <div class="project__name">
-        <a href="https://recipe-verse.vercel.app" target="_blank">RecipeVerse (Personal Project)</a>
+        <a href="https://recipe-verse.vercel.app" target="_blank" class="arrow-link">RecipeVerse (Personal Project)</a>
       </div>
-      <p>
-        Developed a full-stack recipe application integrating TF-IDF search for efficient, relevance-ranked recipe retrieval. Designed a modern, responsive UI with React and TypeScript, optimizing user experience and accessibility. Integrated Firebase authentication for secure user account management and personalized recipe storage. Engineered a structured data pipeline to parse and index a large CSV dataset, ensuring rapid search performance.
-      </p>
+      <ul class="project__bullets">
+        <li>Built a recipe discovery app with React/TypeScript, TF-IDF search, CSV indexing, and Firebase authentication for saved recipes.</li>
+      </ul>
       <div class="project__used">
         <span class="project__used__item">React</span>
         <span class="project__used__item">TypeScript</span>
@@ -41,11 +43,11 @@
     
     <div class="project">
       <div class="project__name">
-        <a href="https://spotify-top-artists-trivia.vercel.app" target="_blank">Spotify Top Artists Trivia App (Personal Project)</a>
+        <a href="https://spotify-top-artists-trivia.vercel.app" target="_blank" class="arrow-link">Spotify Top Artists Trivia App (Personal Project)</a>
       </div>
-      <p>
-        Built an interactive trivia game leveraging the Spotify Web API to dynamically generate questions based on user data. Developed the backend using Python (Flask) and Jinja templating, integrating seamlessly with the frontend. Deployed the application on Vercel to ensure scalability, high availability, and low-latency user interactions.
-      </p>
+      <ul class="project__bullets">
+        <li>Turned Spotify top artists into personalized trivia using the Spotify Web API, Flask, and Jinja templates; deployed on Vercel.</li>
+      </ul>
       <div class="project__used">
         <span class="project__used__item">Python</span>
         <span class="project__used__item">Flask</span>

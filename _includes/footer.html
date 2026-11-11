@@ -1,20 +1,13 @@
 <footer class="footer">
-  <!-- <div class="footer__copyright">
-    <div class="top">
-      <span>Designed &amp; Developed by</span>
+  <div class="footer__inner">
+    <div class="footer__note">
+      <span class="footer__note__name">Matthias Takele</span>
+      <span class="footer__note__meta">Designed &amp; built from scratch &middot; {{ site.time | date: '%Y' }}</span>
     </div>
-    <div class="bottom">
-      <span>Matthias Takele</span>
-      <img class="emoji" src="{{site.baseurl}}/img/emojis/rockon.png" alt="emoji">
-      <span>2018</span>
-    </div>
-  </div> -->
-  <div class="footer__links">
-    {% for link in site.social %}
-    <a href="{{link.url}}" target="_blank" title="{{link.title}}">
-      <span class="text">{{link.title}}</span>
-      <img src="{{site.baseurl}}/img/social/{{link.title}}.svg" alt="{{link.title}}">
-    </a>
-    {% endfor %}
+    <nav class="footer__links" aria-label="Social links">
+      {% for link in site.social %}
+      <a href="{{link.url}}" target="_blank" rel="noopener">{{link.title}}</a>
+      {% endfor %}
+    </nav>
   </div>
 </footer>
