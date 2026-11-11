@@ -37,6 +37,13 @@
     });
   }
 
+  // Jekyll renders the build year; correct it to the viewer's year so the
+  // footer can't go stale between deploys.
+  var footerYear = document.getElementById('footer-year');
+  if (footerYear) {
+    footerYear.textContent = new Date().getFullYear();
+  }
+
   var topButton = document.getElementById('top-button');
   if (topButton) {
     var hero = document.querySelector('.hero');
