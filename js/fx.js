@@ -369,14 +369,15 @@
       .querySelectorAll('.section .reveal, .impact .reveal, .section__title, .job, .project, .skillz__category')
       .forEach(function (el) {
         var delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10) / 1000;
-        gsap.set(el, { opacity: 0, y: 28 });
+        gsap.set(el, { opacity: 0, y: 18 });
         gsap.to(el, {
           opacity: 1,
           y: 0,
-          duration: 0.85,
+          duration: 0.55,
           delay: delay,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 88%' },
+          ease: 'power2.out',
+          // Fire as the element crosses into view, not once it is well inside.
+          scrollTrigger: { trigger: el, start: 'top 97%' },
         });
       });
   }
