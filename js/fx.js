@@ -401,12 +401,14 @@
     }
 
     var counter = { value: 0 };
-    render(0);
+    // Nothing renders until the count starts, so the markup's real figure is
+    // what shows at rest. A resting "0" reads as the number itself.
     gsap.to(counter, {
       value: target,
       duration: 1.6,
       ease: 'power2.out',
-      scrollTrigger: { trigger: el, start: 'top 85%' },
+      // Same trigger as the reveal, so the count runs as the stat fades in.
+      scrollTrigger: { trigger: el, start: 'top 97%' },
       onUpdate: function () {
         render(counter.value);
       },
